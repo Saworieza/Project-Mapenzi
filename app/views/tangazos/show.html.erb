@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Description:</strong>
+  <%= image_tag @tangazo.image.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tangazo.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @tangazo.owner %>
+</p>
+
+<%= link_to 'Edit', edit_tangazo_path(@tangazo) %> |
+<%= link_to 'Back', tangazos_path %>

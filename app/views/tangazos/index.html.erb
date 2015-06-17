@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tangazos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Description</th>
+      <th>Owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tangazos.each do |tangazo| %>
+      <tr>
+        <td><%= image_tag tangazo.image.url %></td>
+        <td><%= tangazo.description %></td>
+        <td><%= tangazo.owner %></td>
+        <td><%= link_to 'Show', tangazo %></td>
+        <td><%= link_to 'Edit', edit_tangazo_path(tangazo) %></td>
+        <td><%= link_to 'Destroy', tangazo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tangazo', new_tangazo_path %>
