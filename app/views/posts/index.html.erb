@@ -19,8 +19,11 @@
           <h2>Comments</h2>
             <div id="comments">
               <%= pluralize(post.comments.count, "Comment") %><br>
-              <%= link_to "Like", like_post_path(post), method: :put %>
-              <%= post.score %>
+
+              <!-- like section out -->
+              <%#= link_to "Like", like_post_path(post), method: :put %>
+              <%#= post.score %>
+              <!-- /like section out -->
             </div>
             <%= form_for [post, Comment.new] do |f| %>
               <p>

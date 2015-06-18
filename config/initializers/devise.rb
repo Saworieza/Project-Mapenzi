@@ -265,4 +265,6 @@ Devise.setup do |config|
   config.authentication_keys = [ :login ]
   config.reset_password_keys = [ :username ]
   config.confirmation_keys = [ :username ]
+
+  config.secret_key = '01c096be49925a79b8ccc0b6c1d2031689265d05f73897368ecd84c8a7549a28c3705c67abe6dd73dbae8042cc658311dcdafa2474748b76918a3faef3082a87'
 end
