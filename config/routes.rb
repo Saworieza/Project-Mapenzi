@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'members/index'
+
   devise_for :admins
   resources :posts do
     member do
