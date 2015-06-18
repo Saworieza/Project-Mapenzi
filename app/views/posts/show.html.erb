@@ -4,9 +4,9 @@
   <strong>Body:</strong>
   <%= @post.body %><br>
 
-  <%= link_to like_post_path(@post), method: :put, class: "data" %>
+  <%= link_to like_post_path(@post), method: :put, class: "fa fa-thumbs-o-up" %>
   <%= pluralize(@post.get_upvotes.size, "Like") %><br>
-  <%= link_to dislike_post_path(@post), method: :put, class: "data" %>
+  <%= link_to dislike_post_path(@post), method: :put, class: "fa fa-thumbs-o-down" %>
   <%= pluralize(@post.get_downvotes.size, "Dislike") %>
 </p>
 
