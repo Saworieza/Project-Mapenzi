@@ -19,4 +19,7 @@ class User < ActiveRecord::Base
   		end
 	end
 
+  has_many :posts
+  has_many :comments
+
 end

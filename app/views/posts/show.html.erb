@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %><br>
+
+  <%= link_to like_post_path(@post), method: :put, class: "data" %>
+  <%= pluralize(@post.get_upvotes.size, "Like") %><br>
+  <%= link_to dislike_post_path(@post), method: :put, class: "data" %>
+  <%= pluralize(@post.get_downvotes.size, "Dislike") %>
+</p>
+
+<% if @post.user == current_user %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
+<%= link_to 'Back', posts_path %> 
+
+<h2>Comments</h2>
+<%= pluralize(@post.comments.count, "Comment") %>
+<div id="comments">
+	<%= render :partial => @post.comments %>
+</div>
+
+<%= form_for [@post, Comment.new] do |f| %>
+    <p>
+        <%= f.label :body, "New comment" %><br/>
+            <%= f.text_area :body %>
+    </p>
+    <p><%= f.submit "Add comment" %></p>
+<% end %>
