@@ -7,26 +7,80 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<header>
-		<nav> 	 	
-			<%= link_to 'Home', root_path %>
-			<%= link_to 'Why Join', why_index_path %>
-			<%= link_to 'Members', members_index_path %>
-			<%= link_to 'Forum', posts_path %>
-			<% if user_signed_in? %>
-				<%= link_to current_user.username, edit_user_registration_path %>
-				<%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-			<% else %>
-				<%= link_to "Sign in", new_user_session_path %>
-				<%= link_to "Sign Up", new_user_registration_path, class: "button" %>
-			<% end %>
-		</nav>
-	</header>
-	
+<header class="container">
+	<div class="logo">
+		<ul>
+			<li><%= image_tag "logo.jpg" %></li>
+			<li><span>K</span>enyaRomanceHookup</li>
+		</ul>
+	</div>
+	<!-- Navigation -->
+    <nav class="navbar navbar-default ">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand page-scroll logo" href="#page-top">
+                    <img src="img/sumuni.png">
+                </a>-->
+            </div>
 
-	<!-- change to flassh messages-->
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                    	<%= link_to 'Home', root_path, class: "page-scroll" %>
+                    </li>
+                    <li>
+                    	<%= link_to 'Why Join', why_index_path, class: "page-scroll" %>
+                    </li>
+                    <li>
+                    	<%= link_to 'Members', members_index_path, class: "page-scroll" %>
+                    </li>
+                    <li>
+                    	<%= link_to 'Forum', posts_path, class: "page-scroll" %>
+                    </li>
+                    <li>
+                    	<%= link_to 'Contact', contact_index_path, class: "page-scroll" %>
+                    </li>
+                    <% if user_signed_in? %>
+						<li>
+							<%= link_to current_user.username, edit_user_registration_path, class: "page-scroll " %>
+						</li>
+						<li>
+							<%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "page-scroll fa fa-sign-out " %>
+						</li>
+					<% else %>
+						<li>
+							<%= link_to " Sign in", new_user_session_path, class: "page-scroll fa fa-sign-in" %>
+						</li>
+						<li>
+							<%= link_to " Sign Up", new_user_registration_path, class: "button page-scroll fa fa-user " %>
+						</li>
+					<% end %>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+</header>
+	
+	<div class="container">
+		<!-- change to flassh messages-->
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	</div>
 
 
 <%= yield %>

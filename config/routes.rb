@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact/index'
+
   get 'members/index'
 
   devise_for :admins
