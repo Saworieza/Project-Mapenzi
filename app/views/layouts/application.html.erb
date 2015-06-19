@@ -7,7 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header class="container">
+<div class="container">
+<header>
 	<div class="logo">
 		<ul>
 			<li><%= image_tag "logo.jpg" %></li>
@@ -39,9 +40,6 @@
 
                     <li>
                     	<%= link_to 'Home', root_path, class: "page-scroll" %>
-                    </li>
-                    <li>
-                    	<%= link_to 'Why Join', why_index_path, class: "page-scroll" %>
                     </li>
                     <li>
                     	<%= link_to 'Members', members_index_path, class: "page-scroll" %>
@@ -76,11 +74,10 @@
     </nav>
 </header>
 	
-	<div class="container">
 		<!-- change to flassh messages-->
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
-	</div>
+</div>
 
 
 <%= yield %>

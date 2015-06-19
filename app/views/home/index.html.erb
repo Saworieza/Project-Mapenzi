@@ -1,15 +1,15 @@
 <div class="container">
-	<header>
+	<div class="header">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">
-					<h1>Create an Account</h1>
-					<p>
-						Registering for this site is easy, just fill in the fields below and we will get a new account set up for you in no time.
-					</p>
 					<% if user_signed_in? %>
 						<p>show something here</p>
-					<% else %>						
+					<% else %>
+						<h1>Create an Account</h1>
+						<p>
+							Registering for this site is easy, just fill in the fields below and we will get a new account set up for you in no time.
+						</p>						
 						<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 	  						<%= devise_error_messages! %>
 							<div class="field">
@@ -42,12 +42,12 @@
 					<% end %>
 				</div>
 				<div class="col-lg-8">
-					<p>put something here</p>
+					<h1>put something here</h1>
 				</div>
 			</div>
 		</div>
-		
-	</header>
+	</div>
+
 	<!-- it starts with a bla bla -->
 	<section style="background-image: url('map-bg.png')no-repeat center center; background-size: contain;" >
 		<h1 class="text-center">It all starts with a <span> date </span> </h1>
@@ -96,19 +96,19 @@
 				Every one loves a love story with a happy ending. Here you have some success stories from our blog section.
 			</p>
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					<%= image_tag 'lovers.jpg' %>
 					<h3>Image post format</h3>
 					<p>Etiam vehicula odio est, sit amet volutpat nulla rutrum nec. Aliquam lorem diam, condimentum eu...</p>
 					<p class="btn">Read more..</p>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					<%= image_tag 'couple.jpg' %>
-					<h3>Image post format</h3>
+					<h3>Couple of the Month</h3>
 					<p>Etiam vehicula odio est, sit amet volutpat nulla rutrum nec. Aliquam lorem diam, condimentum eu...</p>
 					<p class="btn">Read more..</p>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					<%= image_tag 'lovers.jpg' %>
 					<h3>Image post format</h3>
 					<p>Etiam vehicula odio est, sit amet volutpat nulla rutrum nec. Aliquam lorem diam, condimentum eu...</p>
@@ -116,4 +116,17 @@
 				</div>
 			</div>
 	</section>
-</div>
+	<footer>
+		<div>
+			<span class="copyright">Copyright &copy;  Jeff 
+	            <script language="JavaScript" type="text/javascript">
+	                now = new Date
+	                theYear=now.getYear()
+	                if (theYear < 1900)
+	                theYear=theYear+1900
+	                document.write(theYear)
+	            </script> 
+            </span>
+		</div>
+	</footer>
+</div><!-- end container-->
