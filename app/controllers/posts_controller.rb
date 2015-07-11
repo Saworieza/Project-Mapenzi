@@ -31,6 +31,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        #callback 
+        track_activity @post
+
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -45,6 +48,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        track_activity @post
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
@@ -56,14 +60,29 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1
   # DELETE /posts/1.json
+
+   
   def destroy
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
+    track_activity @post
     end
   end
 
+  def upvote
+    @post = Post.find(params[:id])
+    @post.votes.create
+    redirect_to(posts_path)
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    @post.votes.last.destroy
+    redirect_to(posts_path)
+  end
+=begin voting with gem acts as votable
   def upvote
     @post = Post.find(params[:id])
     @post.upvote_by current_user
@@ -75,7 +94,7 @@ class PostsController < ApplicationController
     @post.downvote_from current_user
     redirect_to :back
   end
-
+=end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

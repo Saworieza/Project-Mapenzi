@@ -21,6 +21,7 @@
  }
  .navbar-default{
  	background: #0d1b26;
+ 	border-color: #0d1b26;	
  }
 .navbar-nav>li>a{
 	color: #fff;

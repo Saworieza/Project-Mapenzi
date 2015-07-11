@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activities
   get 'contact/index'
 
   get 'members/index'
@@ -6,8 +7,10 @@ Rails.application.routes.draw do
   devise_for :admins
   resources :posts do
     member do
-  		get "like", to: "posts#upvote"
-  		get "dislike", to: "posts#downvote"
+      post 'upvote'
+      post 'downvote'
+  		#get "like", to: "posts#upvote"
+  		#get "dislike", to: "posts#downvote"
   	end
     resources :comments, :only => [:create]
   end

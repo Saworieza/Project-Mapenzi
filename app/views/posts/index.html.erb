@@ -21,10 +21,11 @@
               <div id="comments">
                 <%= pluralize(post.comments.count, "Comment") %><br>
 
-                <!-- like section out -->
-                <%#= link_to "Like", like_post_path(post), method: :put %>
-                <%#= post.score %>
-                <!-- /like section out -->
+                <!-- please activate font awesome -->
+                <%= pluralize(post.votes.count, "like") %>
+                <%= link_to 'Like', upvote_post_path(post), class: "fa fa-thumbs-up", method: :post %>
+                <%= link_to 'Dislike', downvote_post_path(post), class: "fa fa-thumbs-down", method: :post %>
+
               </div>
               <%= form_for [post, Comment.new] do |f| %>
                 <p>

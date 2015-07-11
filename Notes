@@ -1,0 +1,5 @@
+To Commit
+created a voting thingy to upvote and downvote
+the downvote method doesnt work independently as it deletes a last vote which of no vote exists
+only one issue. the damn user can vote more than once. fix that
+created a user id for the comment so that now using that id. you can know who commented. only issue now is i have to associate a comment to a post id so as to know which post it belongs to
